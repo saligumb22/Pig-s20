@@ -3,15 +3,29 @@ package edu.up.cs301.pig;
 import edu.up.cs301.game.GameFramework.infoMessage.GameState;
 
 public class PigGameState extends GameState {
-    private int player0_id = 0;
-    private int player1_id = 1;
-    private int player0_score = 0;
-    private int player1_score = 0;
-    private int runTotal = 0;
-    private int dieValue = 0;
+    private int player0_id;
+    private int player1_id;
+    private int player0_score;
+    private int player1_score;
+    private int runTotal;
+    private int dieValue;
 
-    public static void main() {
-        public gameInitialize ;
+    public void gameInitialize() {
+        player0_id = 0;
+        player1_id = 1;
+        player0_score = 0;
+        player1_score = 0;
+        runTotal = 0;
+        dieValue = 0;
+    }
+
+    public PigGameState(PigGameState state) {
+        player0_id = state.getPlayer0_id();
+        player1_id = state.getPlayer1_id();
+        player0_score = state.getPlayer0_score();
+        player1_score = state.getPlayer1_score();
+        runTotal = state.getRunTotal();
+        dieValue = state.getDieValue();
     }
 
     public int getPlayer0_id() {
@@ -44,17 +58,18 @@ public class PigGameState extends GameState {
     public void setPlayer1_score (int player1score){
         this.player1_score = player1score;
     }
-    public int runTotal() {
+    public int getRunTotal() {
         return this.runTotal;
     }
     public void setRunTotalrunTotal (int updatedTotal){
         this.runTotal = updatedTotal;
     }
-    public int dieValue() {
+    public int getDieValue() {
         return this.dieValue;
     }
     public void setDieValue (int newDieValue){
         this.runTotal = newDieValue;
     }
+
 
 }

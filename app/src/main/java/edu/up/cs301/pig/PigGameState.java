@@ -44,5 +44,17 @@ public class PigGameState extends GameState {
     public void setPlayer1_score (int player1score){
         this.player1_score = player1score;
     }
+    public int runTotal() {
+        return this.runTotal;
+    }
+    public void setRunTotalrunTotal (int updatedTotal){
+        this.runTotal = updatedTotal;
+    }
+    public int dieValue() {
+        return this.dieValue;
+    }
+    public void setDieValue (int newDieValue){
+        this.runTotal = newDieValue;
+    }
 
 }

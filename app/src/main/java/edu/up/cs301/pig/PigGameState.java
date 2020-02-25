@@ -10,7 +10,7 @@ public class PigGameState extends GameState {
     private int runTotal = 0;
     private int dieValue = 0;
 
-    public static void main() {
+    public gameInitialize() {
         public gameInitialize ;
     }
 

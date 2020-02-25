@@ -3,9 +3,29 @@ package edu.up.cs301.pig;
 import edu.up.cs301.game.GameFramework.infoMessage.GameState;
 
 public class PigGameState extends GameState {
-public int player0_id = 0;
-public int player1_id = 1;
-public int player0_score;
-public int player1_score;
-public int 
+private int player0_id = 0;
+private int player1_id = 1;
+private int player0_score = 0;
+private int player1_score = 0;
+private int runTotal = 0;
+private int dieValue = 0;
+
+public static void main(){
+    public gameInitialize;
+}
+
+public int getPlayer0_id(){
+    return this.player0_id;
+}
+public void setPlayer0_id(int player0id){
+    this.player0_id = player0id;
+}
+public int getPlayer1_id(){
+    return this.player1_id;
+}
+public void setPlayer1_id(int player1id){
+    this.player1_id = player1id;
+}
+
+
 }

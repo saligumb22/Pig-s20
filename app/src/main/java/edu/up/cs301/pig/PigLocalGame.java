@@ -20,10 +20,11 @@ public class PigLocalGame extends LocalGame {
     /**
      * This ctor creates a new game state
      */
-    private PigGameState PigGameState;
+    private PigGameState PigState;
 
     public PigLocalGame() {
-        PigGameState = new PigGameState;
+        super();
+        PigState = new PigGameState();
 
         //TODO  You will implement this constructor
     }
@@ -34,17 +35,8 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int playerIdx) {
 
-        if (state.getPlayer0_id() = playerIdx) {
-
-            return true;
-        }
-        else{
-
-            return false;
-        }
-
+       return playerIdx == PigState.getPlayerID();
         //TODO  You will implement this method
-
     }
 
     /**
@@ -56,9 +48,15 @@ public class PigLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
         if (action instanceof PigHoldAction) {
-            int runTotal = updatedTotal + dieValue;
-            int setRunTotalrunTotal = 0;
-
+            if(PigState.getPlayerID() == 1){
+                PigState.setPlayer1(PigState.getPlayer1()+PigState.getRunTotal());
+                PigState.setRunTotal(0);
+            }
+            else{
+                PigState.setPlayer0(PigState.getPlayer0()+PigState.getRunTotal());
+                PigState.setRunTotal(0);
+            }
+            //turns
         }
 
         else if (action instanceof PigRollAction) {

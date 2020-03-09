@@ -52,12 +52,15 @@ public class PigGameState extends GameState {
     public int getRunTotal() {
         return runTotal;
     }
+
     public void setRunTotalrunTotal (int rT){
         this.runTotal = rT;
     }
+
     public int getDieValue() {
         return dieValue;
     }
+
     public void setDieValue (int vD){
         this.runTotal = vD;
     }

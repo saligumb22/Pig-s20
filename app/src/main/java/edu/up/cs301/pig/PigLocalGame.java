@@ -4,8 +4,10 @@ import edu.up.cs301.game.GameFramework.GamePlayer;
 import edu.up.cs301.game.GameFramework.LocalGame;
 import edu.up.cs301.game.GameFramework.actionMessage.GameAction;
 import edu.up.cs301.game.GameFramework.infoMessage.GameState;
-
+import java.util.Random;
 import android.util.Log;
+
+import java.util.Random;
 
 /**
  * class PigLocalGame controls the play of the game
@@ -18,7 +20,11 @@ public class PigLocalGame extends LocalGame {
     /**
      * This ctor creates a new game state
      */
+    private PigGameState PigGameState;
+
     public PigLocalGame() {
+        PigGameState = new PigGameState;
+
         //TODO  You will implement this constructor
     }
 
@@ -27,8 +33,18 @@ public class PigLocalGame extends LocalGame {
      */
     @Override
     protected boolean canMove(int playerIdx) {
+
+        if (state.getPlayer0_id() = playerIdx) {
+
+            return true;
+        }
+        else{
+
+            return false;
+        }
+
         //TODO  You will implement this method
-        return false;
+
     }
 
     /**
@@ -39,8 +55,33 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
-        return false;
-    }//makeMove
+        if (action instanceof PigHoldAction) {
+            int runTotal = updatedTotal + dieValue;
+            int setRunTotalrunTotal = 0;
+
+        }
+
+        else if (action instanceof PigRollAction) {
+            Random rand = new Random();
+            int upperbound = 6;
+            int lowerbound = 1;
+            int random_int = (int)(Math.random() * (upperbound-lowerbound + 1) + lowerbound);
+            return true;
+
+
+        }
+
+        else {
+
+            return false;
+        }
+
+
+
+
+        }
+
+    //makeMove
 
     /**
      * send the updated state to a given player

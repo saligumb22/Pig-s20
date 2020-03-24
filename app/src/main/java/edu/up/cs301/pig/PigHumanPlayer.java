@@ -76,7 +76,7 @@ public class PigHumanPlayer extends GameHumanPlayer implements OnClickListener {
         int p2 = state.getPlayer1();
         String player2 = String.valueOf(p2);
         int t1 = state.getRunTotal();
-
+        String runTotal = String.valueOf(t1);
         //display updated scores
         if(state.getPlayerID() == 1){
             //set player score

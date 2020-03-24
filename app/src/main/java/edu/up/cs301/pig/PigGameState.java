@@ -53,7 +53,7 @@ public class PigGameState extends GameState {
         return runTotal;
     }
 
-    public void setRunTotalrunTotal (int rT){
+    public void setRunTotal (int rT){
         this.runTotal = rT;
     }
 

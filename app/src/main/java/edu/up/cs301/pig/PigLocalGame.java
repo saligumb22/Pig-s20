@@ -48,36 +48,41 @@ public class PigLocalGame extends LocalGame {
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
         if (action instanceof PigHoldAction) {
-            if(PigState.getPlayerID() == 1){
-                PigState.setPlayer1(PigState.getPlayer1()+PigState.getRunTotal());
+            if (PigState.getPlayerID() == 1) {
+                PigState.setPlayer1(PigState.getPlayer1() + PigState.getRunTotal());
                 PigState.setRunTotal(0);
             }
-            else{
-                PigState.setPlayer0(PigState.getPlayer0()+PigState.getRunTotal());
+            else {
+                PigState.setPlayer0(PigState.getPlayer0() + PigState.getRunTotal());
                 PigState.setRunTotal(0);
             }
-            //turns
-        }
-
-        else if (action instanceof PigRollAction) {
+            //set other turn
+            if (PigState.getPlayerID() == 1) {
+                PigState.setPlayerID(0);
+            }
+            else {
+                PigState.setPlayerID(1);
+            }
+            return true;
+        } else if (action instanceof PigRollAction) {
             Random rand = new Random();
             int upperbound = 6;
             int lowerbound = 1;
-            int random_int = (int)(Math.random() * (upperbound-lowerbound + 1) + lowerbound);
-            return true;
-
-
+            int random_int = (int) (Math.random() * (upperbound - lowerbound + 1) + lowerbound);
+            PigState.setDieValue(random_int);
+            if(PigState.getDieValue() !=1){
+                PigState.setRunTotal(0);
+            if (PigState.getDieValue() == 1) {
+                PigState.setRunTotal(0);
+            }
+            else {
+                PigState.setPlayerID(1);
+            }
         }
-
-        else {
-
-            return false;
-        }
-
-
-
-
-        }
+        return true;
+    }
+    return false;
+}
 
     //makeMove
 
@@ -87,6 +92,7 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected void sendUpdatedStateTo(GamePlayer p) {
         //TODO  You will implement this method
+        p.sendInfo(new PigGameState(PigState));
     }//sendUpdatedSate
 
     /**
@@ -99,6 +105,12 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         //TODO  You will implement this method
+        if(PigState.getPlayer0() >= 50) {
+            return "Player 1 won the game. Had " + PigState.getPlayer0() + " points.";
+        }
+        else if (PigState.getPlayer1() >= 50) {
+            return "Plater 2 won the game. Had " + PigState.getPlayer1() + " points.";
+        }
         return null;
     }
 
